@@ -378,5 +378,5 @@ console.log(splatconfig.backgroundColor);    // "#000000"
 //  butterfly.scale.set(splatconfig.scale[0], splatconfig.scale[1], splatconfig.scale[2]);
   renderer.setAnimationLoop(function animate(time) {
     renderer.render(scene, camera);
-//    butterfly.rotation.y += 0.01;
+    butterfly.rotation.y += 0.01;
   });
