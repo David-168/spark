@@ -350,7 +350,7 @@
   
 
 initMediaPipe();
-  const splatURL = "https://sparkjs.dev/assets/splats/butterfly.spz";
+//  const splatURL = "https://sparkjs.dev/assets/splats/butterfly.spz";
   const butterfly = new SplatMesh({ url: splatURL });
   butterfly.quaternion.set(1, 0, 0, 0);
   butterfly.position.set(0, 0, -0.3);
