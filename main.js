@@ -124,11 +124,11 @@
       // Update the frame rate.
   //    fpsControl.tick();
       // Draw the overlays.
-        console.log("onResults Tag00");
+//        console.log("onResults Tag00");
       if (results.multiFaceLandmarks) {
           for (const landmarks of results.multiFaceLandmarks) {
               if (solutionOptions.refineLandmarks) {
-        console.log("onResults Tag01",videoElement,videoElement.videoWidth,videoElement.videoHeight);
+//        console.log("onResults Tag01",videoElement,videoElement.videoWidth,videoElement.videoHeight);
   //		        let landmarks =  results.landmarks[0];
                 let distanceZ = estimateDepth(landmarks,videoElement.videoWidth,videoElement.videoHeight,76);
         //          console.log("Distance",distanceZ);
@@ -157,22 +157,22 @@
                 ;//-((heightInches)/2);
   //				console.log("LeftEye Meters:",worldPoint.x,",",worldPoint.y,",",worldPoint.z);
   
-                console.log("leftEye Pixel:",worldPoint.x.toFixed(2),",",worldPoint.y.toFixed(2),",",worldPoint.z.toFixed(2));
+//                console.log("leftEye Pixel:",worldPoint.x.toFixed(2),",",worldPoint.y.toFixed(2),",",worldPoint.z.toFixed(2));
   
   //				camera.position.x=worldPoint.x; 
   //				camera.position.y=worldPoint.y;
   //				camera.position.z=worldPoint.z; //z position is fixed.    
                 //camera.position= [0, 0, 0];
-                camera.position.copy(new THREE.Vector3(worldPoint.x, worldPoint.y, worldPoint.z));
+//                camera.position.copy(new THREE.Vector3(worldPoint.x, worldPoint.y, worldPoint.z));
                 //  camera.position = new THREE.Vector3(worldPoint.x, worldPoint.y, worldPoint.z);
-        console.log("onResults Tag014");
+//        console.log("onResults Tag014");
   //				camera.projectionMatrix = FrustumProjection(worldPoint);
                 let projectionMatrix = FrustumProjection(worldPoint);
               //    camera.projectionMat(projectionMatrix);
                   //camera.projectionMatrix.fromArray(
                   //    projectionMatrix.elements
                   //);
-        console.log("onResults Tag015");
+//        console.log("onResults Tag015");
   
               }
           }
@@ -210,7 +210,7 @@
       
         function estimateDepth(landmarks, imageWidth, imageHeight,fovDeg) {
   
-          console.log("Tag0");
+//          console.log("Tag0");
           //console.log("landmarks",landmarks);
           //console.log("landmarks33",landmarks[33]);
           let leftEye = landmarks[33];
@@ -224,7 +224,7 @@
   //	);
           const dx = (leftEye.x - rightEye.x);
           const dy = (leftEye.y - rightEye.y);
-          console.log("Tag1");
+  //        console.log("Tag1");
   
   //        console.log("dx:",dx," dy:",dy);
           const pixelDistance = Math.sqrt(dx * dx + dy * dy);
@@ -240,8 +240,8 @@
           //console.log("Tag3");
   
           const depthMeters = (focalLength * realIPD) / pixelDistance;
-          console.log("Video",videoElement.videoWidth,":",videoElement.videoHeight);
-          console.log("depthMeters",depthMeters);
+//          console.log("Video",videoElement.videoWidth,":",videoElement.videoHeight);
+//          console.log("depthMeters",depthMeters);
           const cx = imageWidth / 2;
           const cy = imageHeight / 2;
   
@@ -265,7 +265,7 @@
         function FrustumProjection(eyepos)
         {
   
-          console.log("FrustumProjection tag00");
+  //        console.log("FrustumProjection tag00");
   
           const widthPx = window.innerWidth;//screen.width;              // CSS pixels
           const heightPx = window.innerHeight;//screen.height;            // CSS pixels
@@ -280,29 +280,29 @@
           const widthInches = realWidthPx / ppi;
           const heightInches = realHeightPx / ppi;
   //        console.log("Real pixels:", realWidthPx, realHeightPx);
-          console.log("FrustumProjection tag01");
+//          console.log("FrustumProjection tag01");
   
           const widthMeters = widthInches * 0.0254;
           const heightMeters = heightInches * 0.0254;
-          console.log("Real meters:", widthMeters, heightMeters);
+//          console.log("Real meters:", widthMeters, heightMeters);
   
           const EyePos = new THREE.Vector3(eyepos.x,eyepos.y,eyepos.z);
-          console.log("FrustumProjection tag02");
+//          console.log("FrustumProjection tag02");
           const LeftTop =new THREE.Vector3(-0.032,0.05,0);
   //        const LeftTop =new THREE.Vector3(-1*widthMeters,heightMeters,0);
           const RightBottom =new THREE.Vector3(0.032,-0.05,0);
   //        const RightBottom =new THREE.Vector3(widthMeters,-1*heightMeters,0);
-          console.log("FrustumProjection tag03");
+//          console.log("FrustumProjection tag03");
           const LeftTopCameraSpace = LeftTop.sub(EyePos);//LeftTop.clone().applyMatrix4(camera.matrixWorldInverse);
   //        console.log("LeftTop:", LeftTopCameraSpace);
-          console.log("FrustumProjection tag04");
+//          console.log("FrustumProjection tag04");
   
           const RightBottomCameraSpace = RightBottom.sub(EyePos);//RightBottom.clone().applyMatrix4(camera.matrixWorldInverse);
   //        console.log("RightBottom:", RightBottomCameraSpace);
-          console.log("FrustumProjection tag040");
+//          console.log("FrustumProjection tag040");
           //camera.position.copy(EyePos);
-          camera.lookAt(new THREE.Vector3(eyepos.x,eyepos.y,0));
-          console.log("FrustumProjection tag041");
+//          camera.lookAt(new THREE.Vector3(eyepos.x,eyepos.y,0));
+//          console.log("FrustumProjection tag041");
           camera.projectionMatrix.makePerspective(LeftTopCameraSpace.x,
             RightBottomCameraSpace.x,
             RightBottomCameraSpace.y,
@@ -310,7 +310,7 @@
             -1*LeftTopCameraSpace.z,
             100
           ); 
-          console.log("FrustumProjection tag042");
+//          console.log("FrustumProjection tag042");
           var m = PerspectiveOffCenter(LeftTopCameraSpace.x,
             RightBottomCameraSpace.x,
             RightBottomCameraSpace.y,
@@ -319,13 +319,13 @@
             100
           ); 
   
-                  console.log("FrustumProjection tag05");
+//                  console.log("FrustumProjection tag05");
   
           return m;
     };
         function PerspectiveOffCenter(left, right, bottom, top, near, far)
         {
-                  console.log("PerspectiveOffCenter tag00");
+//                  console.log("PerspectiveOffCenter tag00");
   /*        var x = 2.0 * near / (right - left);
           var y = 2.0 * near / (top - bottom);
           var a = (right + left) / (right - left);
@@ -344,12 +344,22 @@
          
   //        var m = new SPLAT.Matrix4( x,0,a,0, 0,y,b,0, 0,0,c, d,0,0, e,0);
           var m = new THREE.Matrix4( x,0,0,0, 0,y,0,0, a,b,c,e, 0,0,d,0);
-                  console.log("PerspectiveOffCenter tag01");
+                  //        console.log("PerspectiveOffCenter tag01");
           return m;
         };
   
 
 initMediaPipe();
+const el = document.getElementById("splat");
+
+// Parse the JSON string
+const splatconfig = JSON.parse(el.dataset.config);
+
+console.log(splatconfig.scene);              // "garden.splat"
+console.log(splatconfig.camera.x);           // 0
+console.log(splatconfig.camera.y);           // 1
+console.log(splatconfig.rotation.x);                // 60
+console.log(config.backgroundColor);    // "#000000"
 //  const splatURL = "https://sparkjs.dev/assets/splats/butterfly.spz";
   const butterfly = new SplatMesh({ url: splatURL });
   butterfly.quaternion.set(1, 0, 0, 0);
