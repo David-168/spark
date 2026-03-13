@@ -368,14 +368,14 @@ console.log(splatconfig.backgroundColor);    // "#000000"
   butterfly.quaternion.set(0, 0, 0, 0);
   butterfly.position.set(splatconfig.position[0],
      splatconfig.position[1], splatconfig.position[2]);
-  butterfly.rotation.set((
-    splatconfig.rotation[0] * Math.PI/180,
-    splatconfig.rotation[1] * Math.PI/180,
-    splatconfig.rotation[2] * Math.PI/180
-  ));
+ // butterfly.rotation.set((
+//    splatconfig.rotation[0] * Math.PI/180,
+//    splatconfig.rotation[1] * Math.PI/180,
+//    splatconfig.rotation[2] * Math.PI/180
+//  ));
   scene.add(butterfly);
   renderer.setClearColor(0x000000, 1)
-  butterfly.scale.set(splatconfig.scale[0], splatconfig.scale[1], splatconfig.scale[2]);
+//  butterfly.scale.set(splatconfig.scale[0], splatconfig.scale[1], splatconfig.scale[2]);
   renderer.setAnimationLoop(function animate(time) {
     renderer.render(scene, camera);
 //    butterfly.rotation.y += 0.01;
