@@ -152,7 +152,7 @@
                 const ppi = 460; // 
   //		console.log("onResults Tag013");
                 worldPoint.x=worldPoint.x;
-                worldPoint.y=-1*worldPoint.y
+                worldPoint.y=worldPoint.y
                 +(window.innerHeight*window.devicePixelRatio/ppi)*0.0254
                 ;//-((heightInches)/2);
   //				console.log("LeftEye Meters:",worldPoint.x,",",worldPoint.y,",",worldPoint.z);
