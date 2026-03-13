@@ -350,6 +350,7 @@
   
 
 initMediaPipe();
+/*
 const el = document.getElementById("splat");
 
 // Parse the JSON string
@@ -360,6 +361,7 @@ console.log(splatconfig.camera.x);           // 0
 console.log(splatconfig.camera.y);           // 1
 console.log(splatconfig.rotation.x);                // 60
 console.log(config.backgroundColor);    // "#000000"
+*/
 //  const splatURL = "https://sparkjs.dev/assets/splats/butterfly.spz";
   const butterfly = new SplatMesh({ url: splatURL });
   butterfly.quaternion.set(1, 0, 0, 0);
