@@ -357,9 +357,9 @@ const el = document.getElementById("splat");
 const splatconfig = JSON.parse(el.dataset.config);
 
 console.log(splatconfig.scene);              // "garden.splat"
-console.log(splatconfig.camera.x);           // 0
-console.log(splatconfig.camera.y);           // 1
-console.log(splatconfig.rotation.x);                // 60
+console.log(splatconfig.camera);           // 0
+console.log(splatconfig.scale);           // 1
+console.log(splatconfig.rotation);                // 60
 console.log(splatconfig.backgroundColor);    // "#000000"
 
 //  const splatURL = "https://sparkjs.dev/assets/splats/butterfly.spz";
