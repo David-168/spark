@@ -357,18 +357,26 @@ const el = document.getElementById("splat");
 const splatconfig = JSON.parse(el.dataset.config);
 
 console.log(splatconfig.scene);              // "garden.splat"
-console.log(splatconfig.camera);           // 0
+console.log(splatconfig.position[0]);           // 0
 console.log(splatconfig.scale);           // 1
 console.log(splatconfig.rotation);                // 60
 console.log(splatconfig.backgroundColor);    // "#000000"
 
 //  const splatURL = "https://sparkjs.dev/assets/splats/butterfly.spz";
-  const butterfly = new SplatMesh({ url: splatURL });
-  butterfly.quaternion.set(1, 0, 0, 0);
-  butterfly.position.set(0, 0, -0.3);
+  const butterfly = new SplatMesh({ url: splatconfig.scene });
+  
+  butterfly.quaternion.set(0, 0, 0, 0);
+  butterfly.position.set(splatconfig.position[0],
+     splatconfig.position[1], splatconfig.position[2]);
+  butterfly.rotation.set((
+    splatconfig.rotation[0] * Math.PI/180,
+    splatconfig.rotation[1] * Math.PI/180,
+    splatconfig.rotation[2] * Math.PI/180
+  ));
   scene.add(butterfly);
-  renderer.setClearColor(0x000000, 0)
+  renderer.setClearColor(0x000000, 1)
+  butterfly.scale.set(splatconfig.scale[0], splatconfig.scale[1], splatconfig.scale[2]);
   renderer.setAnimationLoop(function animate(time) {
     renderer.render(scene, camera);
-    butterfly.rotation.y += 0.01;
+//    butterfly.rotation.y += 0.01;
   });
