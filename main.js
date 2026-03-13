@@ -293,15 +293,15 @@
           const RightBottom =new THREE.Vector3(0.032,-0.05,0);
   //        const RightBottom =new THREE.Vector3(widthMeters,-1*heightMeters,0);
           console.log("FrustumProjection tag03");
-          const LeftTopCameraSpace = LeftTop.subtract(EyePos);//LeftTop.clone().applyMatrix4(camera.matrixWorldInverse);
+          const LeftTopCameraSpace = LeftTop.sub(EyePos);//LeftTop.clone().applyMatrix4(camera.matrixWorldInverse);
   //        console.log("LeftTop:", LeftTopCameraSpace);
           console.log("FrustumProjection tag04");
   
-          const RightBottomCameraSpace = RightBottom.subtract(EyePos);//RightBottom.clone().applyMatrix4(camera.matrixWorldInverse);
+          const RightBottomCameraSpace = RightBottom.sub(EyePos);//RightBottom.clone().applyMatrix4(camera.matrixWorldInverse);
   //        console.log("RightBottom:", RightBottomCameraSpace);
           console.log("FrustumProjection tag040");
           camera.lookAt(new THREE.Vector3(eyepos.x,eyepos.y,0));
-          cmera.FrustumProjection(LeftTopCameraSpace.x,
+          camera.FrustumProjection(LeftTopCameraSpace.x,
             RightBottomCameraSpace.x,
             RightBottomCameraSpace.y,
             LeftTopCameraSpace.y,
