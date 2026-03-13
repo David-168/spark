@@ -2,7 +2,7 @@
   import { SplatMesh } from "@sparkjsdev/spark";
 
   const scene = new THREE.Scene();
-  const camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
+  let camera = new THREE.PerspectiveCamera(60, window.innerWidth / window.innerHeight, 0.1, 1000);
   const renderer = new THREE.WebGLRenderer();
   renderer.setSize(window.innerWidth, window.innerHeight);
   document.body.appendChild(renderer.domElement)
@@ -163,7 +163,8 @@
   //				camera.position.y=worldPoint.y;
   //				camera.position.z=worldPoint.z; //z position is fixed.    
                 //camera.position= [0, 0, 0];
-                  camera.position = new THREE.Vector3(worldPoint.x, worldPoint.y, worldPoint.z);
+                camera.position.copy(new THREE.Vector3(worldPoint.x, worldPoint.y, worldPoint.z));
+                //  camera.position = new THREE.Vector3(worldPoint.x, worldPoint.y, worldPoint.z);
         console.log("onResults Tag014");
   //				camera.projectionMatrix = FrustumProjection(worldPoint);
                 let projectionMatrix = FrustumProjection(worldPoint);
@@ -285,11 +286,11 @@
           const heightMeters = heightInches * 0.0254;
           console.log("Real meters:", widthMeters, heightMeters);
   
-          const EyePos = new SPLAT.Vector3(eyepos.x,eyepos.y,eyepos.z);
+          const EyePos = new THREE.Vector3(eyepos.x,eyepos.y,eyepos.z);
           console.log("FrustumProjection tag02");
-          const LeftTop =new SPLAT.Vector3(-0.032,0.05,0);
+          const LeftTop =new THREE.Vector3(-0.032,0.05,0);
   //        const LeftTop =new THREE.Vector3(-1*widthMeters,heightMeters,0);
-          const RightBottom =new SPLAT.Vector3(0.032,-0.05,0);
+          const RightBottom =new THREE.Vector3(0.032,-0.05,0);
   //        const RightBottom =new THREE.Vector3(widthMeters,-1*heightMeters,0);
           console.log("FrustumProjection tag03");
           const LeftTopCameraSpace = LeftTop.subtract(EyePos);//LeftTop.clone().applyMatrix4(camera.matrixWorldInverse);
@@ -299,6 +300,14 @@
           const RightBottomCameraSpace = RightBottom.subtract(EyePos);//RightBottom.clone().applyMatrix4(camera.matrixWorldInverse);
   //        console.log("RightBottom:", RightBottomCameraSpace);
           console.log("FrustumProjection tag040");
+          camera.lookAt(new THREE.Vector3(eyepos.x,eyepos.y,0));
+          cmera.FrustumProjection(LeftTopCameraSpace.x,
+            RightBottomCameraSpace.x,
+            RightBottomCameraSpace.y,
+            LeftTopCameraSpace.y,
+            -1*LeftTopCameraSpace.z,
+            100
+          ); 
           var m = PerspectiveOffCenter(LeftTopCameraSpace.x,
             RightBottomCameraSpace.x,
             RightBottomCameraSpace.y,
@@ -331,7 +340,7 @@
           var e = 1.0;
          
   //        var m = new SPLAT.Matrix4( x,0,a,0, 0,y,b,0, 0,0,c, d,0,0, e,0);
-          var m = new SPLAT.Matrix4( x,0,0,0, 0,y,0,0, a,b,c,e, 0,0,d,0);
+          var m = new THREE.Matrix4( x,0,0,0, 0,y,0,0, a,b,c,e, 0,0,d,0);
                   console.log("PerspectiveOffCenter tag01");
           return m;
         };
