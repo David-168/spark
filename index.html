@@ -1,3 +1,13 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <link rel="stylesheet" href="style.css" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>gsplat.js - Viewer Demo</title>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/face_mesh@0.4/face_mesh.js" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/@mediapipe/camera_utils@0.3/camera_utils.js" crossorigin="anonymous"></script>
+    </head>
 <style> body {margin: 0;} </style>
 <script type="importmap">
   {
@@ -7,5 +17,21 @@
     }
   }
 </script>
+    <body>
+        <div id="progress-container">
+            <dialog open id="progress-dialog">
+                <p>
+                    <label for="progress-indicator">Loading scene...</label>
+                </p>
+                <progress max="100" id="progress-indicator"></progress>
+            </dialog>
+        </div>
+        <video class="input_video" ></video>
+        <canvas id="canvas"></canvas>
+        <script src="main.js" type="module"></script>
+    </body>
 
-<script src="main.js" type="module"></script>
+
+
+</head>
+ml>
