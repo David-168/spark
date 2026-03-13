@@ -300,7 +300,7 @@
           const RightBottomCameraSpace = RightBottom.sub(EyePos);//RightBottom.clone().applyMatrix4(camera.matrixWorldInverse);
   //        console.log("RightBottom:", RightBottomCameraSpace);
           console.log("FrustumProjection tag040");
-          camera.position.copy(EyePos);
+          //camera.position.copy(EyePos);
           camera.lookAt(new THREE.Vector3(eyepos.x,eyepos.y,0));
           console.log("FrustumProjection tag041");
           camera.projectionMatrix.makePerspective(LeftTopCameraSpace.x,
