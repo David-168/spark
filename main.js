@@ -302,7 +302,7 @@
           console.log("FrustumProjection tag040");
           camera.lookAt(new THREE.Vector3(eyepos.x,eyepos.y,0));
           console.log("FrustumProjection tag041");
-          camera.FrustumProjection(LeftTopCameraSpace.x,
+          camera.projectionMatrix.makePerspective(LeftTopCameraSpace.x,
             RightBottomCameraSpace.x,
             RightBottomCameraSpace.y,
             LeftTopCameraSpace.y,
