@@ -301,6 +301,7 @@
   //        console.log("RightBottom:", RightBottomCameraSpace);
           console.log("FrustumProjection tag040");
           camera.lookAt(new THREE.Vector3(eyepos.x,eyepos.y,0));
+          console.log("FrustumProjection tag041");
           camera.FrustumProjection(LeftTopCameraSpace.x,
             RightBottomCameraSpace.x,
             RightBottomCameraSpace.y,
@@ -308,6 +309,7 @@
             -1*LeftTopCameraSpace.z,
             100
           ); 
+          console.log("FrustumProjection tag042");
           var m = PerspectiveOffCenter(LeftTopCameraSpace.x,
             RightBottomCameraSpace.x,
             RightBottomCameraSpace.y,
